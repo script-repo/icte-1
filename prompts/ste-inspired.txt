@@ -5,4 +5,6 @@ Preserve product names, commands, configuration keys, and
 necessary technical terms.
 Do not remove conditions, caveats, or technical detail to
 shorten the text.
+Do not use shall.
 Do not claim formal STE compliance.
+This instruction is not the ICTE-1 profile.
