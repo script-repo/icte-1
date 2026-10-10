@@ -236,7 +236,7 @@ def check_terms_match_spec(reg: dict, spec: str, report: Report) -> None:
     for term in reg["terms"]:
         preferred = term["preferred_term"]
         definition = norm(term["definition"])
-        usage = norm(term["usage_rule"]) if term.get("usage_rule") else "—"
+        usage = norm(term["usage_rule"]) if term.get("usage_rule") else "\u2014"
         target = spec_verbs if term["part_of_speech"] == "verb" else spec_nouns
         other = spec_nouns if term["part_of_speech"] == "verb" else spec_verbs
         if preferred in other:
@@ -388,16 +388,35 @@ def check_examples(spec: str, report: Report) -> None:
     copy_rows = domain_rows((ROOT / "examples" / "before-after.md").read_text())
     if not spec_rows or spec_rows != copy_rows:
         report.fail("examples/before-after.md does not match section 8")
+    banned = re.compile(r"\b(reads?|proposes?|changes?|approves?)\b", re.IGNORECASE)
+    for row in spec_rows or []:
+        if banned.search(row[2]):
+            report.fail(f"section 8 ICTE-1 wording uses an unapproved verb: {row[0]}")
     for path in SAMPLES:
         text = (ROOT / path).read_text()
         if "TBD" not in text:
             report.fail(f"{path} does not keep unknowns visible")
         if "Rules:" not in text:
             report.fail(f"{path} does not annotate rules")
+        for line in text.splitlines():
+            if line.startswith("**Read or write behavior:**"):
+                continue
+            if banned.search(line):
+                report.fail(f"{path} uses an unapproved verb: {line.strip()}")
+    runbook = (ROOT / "examples" / "sample-runbook.md").read_text()
+    for phrase in (
+        "**Language result:** pass, with a recorded exception.",
+        "**Operational completeness:** pass.",
+        "**Technical review:** not passed.",
+    ):
+        if phrase not in runbook:
+            report.fail(f"sample runbook is missing its section 11 score: {phrase}")
     acceptance = (ROOT / "rules" / "acceptance.md").read_text()
     for phrase in ("Language result", "Operational completeness", "Technical review"):
         if phrase not in spec or phrase not in acceptance:
             report.fail(f"acceptance copy missing {phrase}")
+    if "outside this repository" not in acceptance:
+        report.fail("acceptance copy does not record that an outside document is unscored")
 
 
 def domain_rows(md: str) -> list[tuple[str, str, str]] | None:
