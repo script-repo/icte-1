@@ -1,12 +1,8 @@
 specification: ICTE-1
-version: "0.2"
+version: '0.2'
 status: draft
-date: "2026-10-10"
-note: >
-  Starter vocabulary for ICTE-1. Not an exhaustive dictionary.
-  Not a quotation from ASD-STE100. Local usage conventions,
-  not universal vendor definitions. The word list is not an ontology.
-
+date: '2026-10-10'
+note: Starter vocabulary for ICTE-1. Not an exhaustive dictionary. Not a quotation from ASD-STE100. Local usage conventions, not universal vendor definitions. The word list is not an ontology.
 requirement_words:
 - word: must
   meaning: A required condition or action.
@@ -18,48 +14,32 @@ requirement_words:
   meaning: Permission.
 - word: can
   meaning: Capability or possibility, not permission.
-
 avoid_requirement_words:
 - word: shall
   reason: Do not use shall.
 - word: will
   reason: Do not use will to imply a guarantee unless the behavior is established and its conditions are stated.
-
 avoid_verbs:
-  rule: >
-    Avoid these operational verbs unless the sentence explains
-    the specific action.
+  rule: Avoid these operational verbs unless the sentence explains the specific action.
   verbs:
   - handle
   - fix
   - optimize
   - secure
   - enable
-
 domain_notes:
 - id: note.cloud.isolation
   domain: cloud
-  text: >
-    Do not use private, isolated, disconnected, and air-gapped
-    interchangeably. Describe network reachability, administration,
-    and data movement separately.
+  text: Do not use private, isolated, disconnected, and air-gapped interchangeably. Describe network reachability, administration, and data movement separately.
 - id: note.gitops.reservation
   domain: gitops
-  text: >
-    Reserve GitOps for workflows with declared state and automated
-    reconciliation. Merely storing scripts in Git does not satisfy
-    that convention.
+  text: Reserve GitOps for workflows with declared state and automated reconciliation. Merely storing scripts in Git does not satisfy that convention.
 - id: note.devsecops.scan
   domain: devsecops
-  text: >
-    Do not use a successful scan as proof that a system is secure.
-    State the checks performed, their coverage, and their limitations.
+  text: Do not use a successful scan as proof that a system is secure. State the checks performed, their coverage, and their limitations.
 - id: note.gitops.rollback
   domain: gitops
-  text: >
-    Do not imply that reverting a commit necessarily restores
-    application data or reverses external side effects.
-
+  text: Do not imply that reverting a commit necessarily restores application data or reverses external side effects.
 non_equivalences:
 - id: ne.ai.model_output
   left: ai.model
@@ -98,8 +78,7 @@ non_equivalences:
   statement: Private deployment is not automatically compliant deployment.
   severity: required
 proposed_relations:
-  note: "Proposed modeling statements from ICTE-1 section 9.1. left and right are term ids.
-    These statements need constraints before they constitute a formal ontology.\n"
+  note: Proposed modeling statements from ICTE-1 section 9.1. left and right are term ids. These statements need constraints before they constitute a formal ontology.
   statements:
   - id: rel.gitops.reconciles
     left: gitops.controller
@@ -133,7 +112,6 @@ terms:
   - hypervisor host
   - virtual machine
   usage_rule: Use when distinguishing physical and virtual resources.
-
 - id: infrastructure.hypervisor_host
   preferred_term: hypervisor host
   part_of_speech: noun
@@ -145,9 +123,7 @@ terms:
   related_terms:
   - physical server
   - virtual machine
-
-  usage_rule: Do not use hypervisor host as a synonym for node unless that host is a 
-    member of the named cluster.
+  usage_rule: Do not use hypervisor host as a synonym for node unless that host is a member of the named cluster.
 - id: infrastructure.virtual_machine
   preferred_term: virtual machine
   part_of_speech: noun
@@ -158,7 +134,6 @@ terms:
   related_terms:
   - hypervisor host
   - physical server
-
 - id: infrastructure.cluster
   preferred_term: cluster
   part_of_speech: noun
@@ -168,9 +143,7 @@ terms:
   avoid_as_synonyms: []
   related_terms:
   - node
-  usage_rule: State the cluster type. Do not leave cluster unqualified when the document
-    names more than one cluster type.
-
+  usage_rule: State the cluster type. Do not leave cluster unqualified when the document names more than one cluster type.
 - id: infrastructure.node
   preferred_term: node
   part_of_speech: noun
@@ -182,31 +155,25 @@ terms:
   related_terms:
   - cluster
   usage_rule: State the cluster type. Do not use node as a synonym for hypervisor host.
-
 - id: infrastructure.workload
   preferred_term: workload
   part_of_speech: noun
   domain: infrastructure
-  definition: >
-    An application or processing task and its associated
-    execution requirements.
+  definition: An application or processing task and its associated execution requirements.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms: []
-
 - id: infrastructure.resource
   preferred_term: resource
   part_of_speech: noun
   domain: infrastructure
-  definition: >
-    An identifiable compute, storage, network, or software object.
+  definition: An identifiable compute, storage, network, or software object.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - capacity
   - utilization
   usage_rule: Specify the type when relevant.
-
 - id: infrastructure.capacity
   preferred_term: capacity
   part_of_speech: noun
@@ -218,7 +185,6 @@ terms:
   - resource
   - utilization
   usage_rule: State the resource and unit.
-
 - id: infrastructure.utilization
   preferred_term: utilization
   part_of_speech: noun
@@ -230,7 +196,6 @@ terms:
   - capacity
   - resource
   usage_rule: State the measurement interval.
-
 - id: infrastructure.snapshot
   preferred_term: snapshot
   part_of_speech: noun
@@ -242,7 +207,6 @@ terms:
   related_terms:
   - backup
   usage_rule: Do not use as an automatic synonym for backup.
-
 - id: infrastructure.backup
   preferred_term: backup
   part_of_speech: noun
@@ -255,19 +219,15 @@ terms:
   - snapshot
   - recovery
   usage_rule: State retention, location, and recovery assumptions.
-
 - id: infrastructure.failover
   preferred_term: failover
   part_of_speech: noun
   domain: infrastructure
-  definition: >
-    Transfer of service operation to an alternate resource
-    after a failure or specified trigger.
+  definition: Transfer of service operation to an alternate resource after a failure or specified trigger.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - recovery
-
 - id: infrastructure.recovery
   preferred_term: recovery
   part_of_speech: noun
@@ -279,7 +239,6 @@ terms:
   - backup
   - failover
   usage_rule: State the recovery criterion.
-
 - id: infrastructure.namespace
   preferred_term: namespace
   part_of_speech: noun
@@ -292,8 +251,7 @@ terms:
   related_terms:
   - cluster
   - tenant
-  usage_rule: State the system that defines the namespace. Do not use namespace as a 
-    synonym for tenant or cloud account.
+  usage_rule: State the system that defines the namespace. Do not use namespace as a synonym for tenant or cloud account.
 - id: infrastructure.volume
   preferred_term: volume
   part_of_speech: noun
@@ -306,8 +264,7 @@ terms:
   related_terms:
   - snapshot
   - backup
-  usage_rule: State the storage system, and state whether the volume is ephemeral or 
-    persistent.
+  usage_rule: State the storage system, and state whether the volume is ephemeral or persistent.
 - id: infrastructure.recovery_point_objective
   preferred_term: recovery point objective
   part_of_speech: noun
@@ -319,21 +276,18 @@ terms:
   related_terms:
   - recovery
   - backup
-  usage_rule: State the service and the interval. Do not use recovery point objective as
-    a synonym for recovery time objective.
+  usage_rule: State the service and the interval. Do not use recovery point objective as a synonym for recovery time objective.
 - id: infrastructure.recovery_time_objective
   preferred_term: recovery time objective
   part_of_speech: noun
   domain: infrastructure
-  definition: The maximum time allowed to restore a stated service after a stated 
-    failure.
+  definition: The maximum time allowed to restore a stated service after a stated failure.
   allowed_aliases: []
   avoid_as_synonyms:
   - recovery point objective
   related_terms:
   - recovery
-  usage_rule: State the service and the failure. Do not use recovery time objective as a
-    synonym for recovery point objective.
+  usage_rule: State the service and the failure. Do not use recovery time objective as a synonym for recovery point objective.
 - id: infrastructure.maintenance
   preferred_term: maintenance
   part_of_speech: noun
@@ -346,8 +300,7 @@ terms:
   related_terms:
   - failover
   - recovery
-  usage_rule: State the window, the impact, and the recovery method. Do not use 
-    maintenance as a synonym for failover or recovery.
+  usage_rule: State the window, the impact, and the recovery method. Do not use maintenance as a synonym for failover or recovery.
 - id: cloud.environment
   preferred_term: cloud environment
   part_of_speech: noun
@@ -359,9 +312,7 @@ terms:
   related_terms:
   - region
   - availability zone
-  usage_rule: Name its provider or operator. Do not use cloud environment as a synonym 
-    for environment.
-
+  usage_rule: Name its provider or operator. Do not use cloud environment as a synonym for environment.
 - id: cloud.target_environment
   preferred_term: environment
   part_of_speech: noun
@@ -373,8 +324,7 @@ terms:
   related_terms:
   - cloud environment
   - deployment
-  usage_rule: Do not use environment as a synonym for cloud environment. Name the 
-    target, such as development, test, or production.
+  usage_rule: Do not use environment as a synonym for cloud environment. Name the target, such as development, test, or production.
 - id: cloud.account
   preferred_term: cloud account
   part_of_speech: noun
@@ -384,7 +334,6 @@ terms:
   avoid_as_synonyms: []
   related_terms: []
   usage_rule: Preserve the provider's exact resource name.
-
 - id: cloud.region
   preferred_term: region
   part_of_speech: noun
@@ -395,7 +344,6 @@ terms:
   related_terms:
   - availability zone
   - cloud environment
-
 - id: cloud.availability_zone
   preferred_term: availability zone
   part_of_speech: noun
@@ -406,7 +354,6 @@ terms:
   related_terms:
   - region
   usage_rule: Do not imply identical guarantees across providers.
-
 - id: cloud.tenant
   preferred_term: tenant
   part_of_speech: noun
@@ -415,7 +362,6 @@ terms:
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms: []
-
 - id: cloud.managed_service
   preferred_term: managed service
   part_of_speech: noun
@@ -424,20 +370,16 @@ terms:
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms: []
-
 - id: cloud.control_plane
   preferred_term: control plane
   part_of_speech: noun
   domain: cloud
-  definition: >
-    Components that manage configuration, scheduling,
-    or lifecycle operations.
+  definition: Components that manage configuration, scheduling, or lifecycle operations.
   allowed_aliases: []
   avoid_as_synonyms:
   - data plane
   related_terms:
   - data plane
-
 - id: cloud.data_plane
   preferred_term: data plane
   part_of_speech: noun
@@ -448,7 +390,6 @@ terms:
   - control plane
   related_terms:
   - control plane
-
 - id: cloud.private_endpoint
   preferred_term: private endpoint
   part_of_speech: noun
@@ -457,13 +398,11 @@ terms:
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms: []
-
 - id: cloud.hybrid_cloud
   preferred_term: hybrid cloud
   part_of_speech: noun
   domain: cloud
-  definition: >
-    A design that integrates private and public cloud environments.
+  definition: A design that integrates private and public cloud environments.
   allowed_aliases: []
   avoid_as_synonyms:
   - multicloud
@@ -471,7 +410,6 @@ terms:
   - multicloud
   - cloud environment
   usage_rule: State the actual integration.
-
 - id: cloud.multicloud
   preferred_term: multicloud
   part_of_speech: noun
@@ -483,7 +421,6 @@ terms:
   related_terms:
   - hybrid cloud
   usage_rule: State which providers and services.
-
 - id: ai.model
   preferred_term: model
   part_of_speech: noun
@@ -495,7 +432,6 @@ terms:
   - model artifact
   - model version
   usage_rule: Qualify its function and version when relevant.
-
 - id: ai.model_artifact
   preferred_term: model artifact
   part_of_speech: noun
@@ -507,7 +443,6 @@ terms:
   related_terms:
   - model
   - model version
-
   usage_rule: Do not use model artifact as a synonym for image.
 - id: ai.model_version
   preferred_term: model version
@@ -519,7 +454,6 @@ terms:
   related_terms:
   - model
   - model artifact
-
 - id: ai.quantization
   preferred_term: quantization
   part_of_speech: noun
@@ -531,9 +465,7 @@ terms:
   related_terms:
   - model
   - model version
-  usage_rule: State the representation, and state whether it applies to weights, 
-    activations, or the KV cache. Do not write precision alone when the text means 
-    quantization.
+  usage_rule: State the representation, and state whether it applies to weights, activations, or the KV cache. Do not write precision alone when the text means quantization.
 - id: ai.inference
   preferred_term: inference
   part_of_speech: noun
@@ -544,7 +476,6 @@ terms:
   related_terms:
   - inference server
   - inference endpoint
-
 - id: ai.inference_server
   preferred_term: inference server
   part_of_speech: noun
@@ -556,7 +487,6 @@ terms:
   - inference
   - inference endpoint
   - model version
-
 - id: ai.inference_endpoint
   preferred_term: inference endpoint
   part_of_speech: noun
@@ -567,7 +497,6 @@ terms:
   related_terms:
   - inference server
   - inference
-
 - id: ai.token
   preferred_term: token
   part_of_speech: noun
@@ -579,22 +508,17 @@ terms:
   - credential
   related_terms:
   - context window
-  usage_rule: Do not treat a token as a word. Do not use token for an authentication 
-    credential. Use credential for that sense.
-
+  usage_rule: Do not treat a token as a word. Do not use token for an authentication credential. Use credential for that sense.
 - id: ai.context_window
   preferred_term: context window
   part_of_speech: noun
   domain: ai
-  definition: >
-    The supported token capacity for a specified model
-    and execution configuration.
+  definition: The supported token capacity for a specified model and execution configuration.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - token
   - model
-
 - id: ai.embedding
   preferred_term: embedding
   part_of_speech: noun
@@ -603,7 +527,6 @@ terms:
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms: []
-
 - id: ai.retrieval
   preferred_term: retrieval
   part_of_speech: noun
@@ -614,7 +537,6 @@ terms:
   related_terms:
   - retrieval-augmented generation
   usage_rule: Retrieval is not model training.
-
 - id: ai.retrieval_augmented_generation
   preferred_term: retrieval-augmented generation
   part_of_speech: noun
@@ -624,22 +546,17 @@ terms:
   avoid_as_synonyms: []
   related_terms:
   - retrieval
-
 - id: ai.agent
   preferred_term: agent
   part_of_speech: noun
   domain: ai
-  definition: >
-    A software system that selects or sequences actions toward a goal.
+  definition: A software system that selects or sequences actions toward a goal.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - tool
   - tool call
-  usage_rule: >
-    State its authority and limits. Agent autonomy is not
-    unrestricted authority.
-
+  usage_rule: State its authority and limits. Agent autonomy is not unrestricted authority.
 - id: ai.tool
   preferred_term: tool
   part_of_speech: noun
@@ -651,7 +568,6 @@ terms:
   - tool call
   - agent
   usage_rule: Tool availability is not permission to execute.
-
 - id: ai.tool_call
   preferred_term: tool call
   part_of_speech: noun
@@ -662,7 +578,6 @@ terms:
   related_terms:
   - tool
   - agent
-
 - id: ai.memory
   preferred_term: memory
   part_of_speech: noun
@@ -673,35 +588,26 @@ terms:
   - RAM
   - GPU memory
   related_terms: []
-  usage_rule: State the storage, the scope, and the retention. Do not use memory for 
-    RAM, GPU memory, or other hardware capacity. State hardware capacity with the 
-    resource and the unit.
-
+  usage_rule: State the storage, the scope, and the retention. Do not use memory for RAM, GPU memory, or other hardware capacity. State hardware capacity with the resource and the unit.
 - id: ai.evaluation
   preferred_term: evaluation
   part_of_speech: noun
   domain: ai
-  definition: >
-    Measurement against specified tasks, datasets,
-    and acceptance criteria.
+  definition: Measurement against specified tasks, datasets, and acceptance criteria.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms: []
-
 - id: gitops.desired_state
   preferred_term: desired state
   part_of_speech: noun
   domain: gitops
-  definition: >
-    The declared configuration that a managed system
-    is intended to reach.
+  definition: The declared configuration that a managed system is intended to reach.
   allowed_aliases: []
   avoid_as_synonyms:
   - observed state
   related_terms:
   - observed state
   - reconciliation
-
 - id: gitops.observed_state
   preferred_term: observed state
   part_of_speech: noun
@@ -713,14 +619,11 @@ terms:
   related_terms:
   - desired state
   - configuration drift
-
 - id: gitops.reconciliation
   preferred_term: reconciliation
   part_of_speech: noun
   domain: gitops
-  definition: >
-    Comparison of desired and observed state, followed
-    by permitted corrective actions.
+  definition: Comparison of desired and observed state, followed by permitted corrective actions.
   allowed_aliases: []
   avoid_as_synonyms:
   - deployment
@@ -729,13 +632,8 @@ terms:
   - desired state
   - observed state
   - configuration drift
-  usage_rule: >
-    Identify the controller, managed resources,
-    and corrective-action authority.
-  example: >
-    The controller reconciles the managed resources
-    against the declared configuration.
-
+  usage_rule: Identify the controller, managed resources, and corrective-action authority.
+  example: The controller reconciles the managed resources against the declared configuration.
 - id: gitops.configuration_drift
   preferred_term: configuration drift
   part_of_speech: noun
@@ -747,20 +645,16 @@ terms:
   - desired state
   - observed state
   - reconciliation
-
 - id: gitops.controller
   preferred_term: GitOps controller
   part_of_speech: noun
   domain: gitops
-  definition: >
-    Software that obtains declared state and reconciles
-    managed resources.
+  definition: Software that obtains declared state and reconciles managed resources.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - reconciliation
   - desired state
-
 - id: gitops.managed_resource
   preferred_term: managed resource
   part_of_speech: noun
@@ -783,7 +677,6 @@ terms:
   related_terms:
   - artifact repository
   - commit
-
 - id: gitops.artifact_repository
   preferred_term: artifact repository
   part_of_speech: noun
@@ -794,7 +687,6 @@ terms:
   - source repository
   related_terms:
   - source repository
-
 - id: gitops.image
   preferred_term: image
   part_of_speech: noun
@@ -816,7 +708,6 @@ terms:
   avoid_as_synonyms: []
   related_terms:
   - desired state
-
 - id: gitops.commit
   preferred_term: commit
   part_of_speech: noun
@@ -827,17 +718,12 @@ terms:
   related_terms:
   - source repository
   - rollback
-  usage_rule: >
-    Do not imply that reverting a commit restores application data
-    or reverses external side effects.
-
+  usage_rule: Do not imply that reverting a commit restores application data or reverses external side effects.
 - id: gitops.promotion
   preferred_term: promotion
   part_of_speech: noun
   domain: gitops
-  definition: >
-    Selection or approval of an artifact or configuration
-    for another environment.
+  definition: Selection or approval of an artifact or configuration for another environment.
   allowed_aliases: []
   avoid_as_synonyms:
   - deployment
@@ -845,14 +731,11 @@ terms:
   related_terms:
   - deployment
   - rollout
-
 - id: gitops.deployment
   preferred_term: deployment
   part_of_speech: noun
   domain: gitops
-  definition: >
-    Introduction or update of software or configuration
-    in an environment.
+  definition: Introduction or update of software or configuration in an environment.
   allowed_aliases: []
   avoid_as_synonyms:
   - reconciliation
@@ -860,21 +743,16 @@ terms:
   related_terms:
   - rollout
   - promotion
-
-  usage_rule: Do not use deployment as a synonym for reconciliation or promotion. When 
-    the text names a product object, preserve the product identifier and state that the 
-    name is the product object.
+  usage_rule: Do not use deployment as a synonym for reconciliation or promotion. When the text names a product object, preserve the product identifier and state that the name is the product object.
 - id: gitops.rollout
   preferred_term: rollout
   part_of_speech: noun
   domain: gitops
-  definition: >
-    The process of introducing a deployment across its intended targets.
+  definition: The process of introducing a deployment across its intended targets.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - deployment
-
 - id: gitops.rollback
   preferred_term: rollback
   part_of_speech: noun
@@ -886,7 +764,6 @@ terms:
   - commit
   - recovery
   usage_rule: State what it does and does not restore.
-
 - id: devsecops.identity
   preferred_term: identity
   part_of_speech: noun
@@ -897,7 +774,6 @@ terms:
   related_terms:
   - authentication
   - authorization
-
 - id: devsecops.authentication
   preferred_term: authentication
   part_of_speech: noun
@@ -910,7 +786,6 @@ terms:
   - identity
   - authorization
   - credential
-
   usage_rule: Do not use authentication as a synonym for authorization.
 - id: devsecops.authorization
   preferred_term: authorization
@@ -923,7 +798,6 @@ terms:
   related_terms:
   - authentication
   - identity
-
   usage_rule: Do not use authorization as a synonym for authentication.
 - id: devsecops.credential
   preferred_term: credential
@@ -937,20 +811,16 @@ terms:
   related_terms:
   - secret
   - authentication
-
-  usage_rule: Do not use credential as a synonym for token. In this profile, token means
-    a tokenizer unit.
+  usage_rule: Do not use credential as a synonym for token. In this profile, token means a tokenizer unit.
 - id: devsecops.secret
   preferred_term: secret
   part_of_speech: noun
   domain: devsecops
-  definition: >
-    Sensitive information that requires controlled access and handling.
+  definition: Sensitive information that requires controlled access and handling.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - credential
-
 - id: devsecops.policy
   preferred_term: policy
   part_of_speech: noun
@@ -960,9 +830,7 @@ terms:
   avoid_as_synonyms: []
   related_terms:
   - policy enforcement
-
-  usage_rule: Name the policy type. Do not use policy alone for a network policy, an 
-    identity policy, or an admission policy.
+  usage_rule: Name the policy type. Do not use policy alone for a network policy, an identity policy, or an admission policy.
 - id: devsecops.policy_enforcement
   preferred_term: policy enforcement
   part_of_speech: noun
@@ -972,7 +840,6 @@ terms:
   avoid_as_synonyms: []
   related_terms:
   - policy
-
 - id: devsecops.vulnerability
   preferred_term: vulnerability
   part_of_speech: noun
@@ -983,7 +850,6 @@ terms:
   - finding
   related_terms:
   - finding
-
 - id: devsecops.finding
   preferred_term: finding
   part_of_speech: noun
@@ -994,21 +860,16 @@ terms:
   - vulnerability
   related_terms:
   - vulnerability
-  usage_rule: >
-    A finding is not by itself proof that a system is secure
-    or insecure. State the check and its coverage.
-
+  usage_rule: A finding is not by itself proof that a system is secure or insecure. State the check and its coverage.
 - id: devsecops.security_exception
   preferred_term: security exception
   part_of_speech: noun
   domain: devsecops
-  definition: >
-    An approved departure from a requirement, with scope and expiry.
+  definition: An approved departure from a requirement, with scope and expiry.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - policy
-
 - id: devsecops.provenance
   preferred_term: provenance
   part_of_speech: noun
@@ -1019,47 +880,38 @@ terms:
   - attestation
   related_terms:
   - attestation
-
 - id: devsecops.attestation
   preferred_term: attestation
   part_of_speech: noun
   domain: devsecops
-  definition: >
-    A statement about an artifact or process, associated with
-    an identified issuer.
+  definition: A statement about an artifact or process, associated with an identified issuer.
   allowed_aliases: []
   avoid_as_synonyms:
   - provenance
   related_terms:
   - provenance
-
 - id: platform.platform
   preferred_term: platform
   part_of_speech: noun
   domain: platform
-  definition: >
-    A defined set of services and interfaces provided to
-    specified consumers.
+  definition: A defined set of services and interfaces provided to specified consumers.
   allowed_aliases: []
   avoid_as_synonyms:
   - developer portal
   related_terms:
   - platform service
   - developer portal
-
 - id: platform.platform_service
   preferred_term: platform service
   part_of_speech: noun
   domain: platform
-  definition: >
-    A named capability with an owner, interface, and operating conditions.
+  definition: A named capability with an owner, interface, and operating conditions.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - platform
   - service owner
   - service catalog
-
 - id: platform.internal_developer_platform
   preferred_term: internal developer platform
   part_of_speech: noun
@@ -1070,7 +922,6 @@ terms:
   related_terms:
   - platform
   - developer portal
-
 - id: platform.developer_portal
   preferred_term: developer portal
   part_of_speech: noun
@@ -1083,7 +934,6 @@ terms:
   - platform
   - service catalog
   usage_rule: Do not equate it with the entire platform.
-
 - id: platform.service_catalog
   preferred_term: service catalog
   part_of_speech: noun
@@ -1094,7 +944,6 @@ terms:
   related_terms:
   - platform service
   - developer portal
-
 - id: platform.golden_path
   preferred_term: golden path
   part_of_speech: noun
@@ -1104,18 +953,14 @@ terms:
   avoid_as_synonyms: []
   related_terms: []
   usage_rule: State whether its use is optional or mandatory.
-
 - id: platform.self_service
   preferred_term: self-service
   part_of_speech: noun
   domain: platform
-  definition: >
-    Consumer execution of a defined action without a separate
-    operator performing that action.
+  definition: Consumer execution of a defined action without a separate operator performing that action.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms: []
-
 - id: platform.guardrail
   preferred_term: guardrail
   part_of_speech: noun
@@ -1126,7 +971,6 @@ terms:
   related_terms:
   - policy
   usage_rule: State its enforcement behavior.
-
 - id: platform.service_owner
   preferred_term: service owner
   part_of_speech: noun
@@ -1136,19 +980,15 @@ terms:
   avoid_as_synonyms: []
   related_terms:
   - platform service
-
 - id: platform.service_level_objective
   preferred_term: service-level objective
   part_of_speech: noun
   domain: platform
-  definition: >
-    A stated target for a defined service-level indicator
-    over a specified period.
+  definition: A stated target for a defined service-level indicator over a specified period.
   allowed_aliases: []
   avoid_as_synonyms: []
   related_terms:
   - platform service
-
 - id: action.named_action
   preferred_term: action
   part_of_speech: noun
@@ -1197,20 +1037,17 @@ terms:
   - reconcile
   related_terms:
   - deployment
-
   usage_rule: Do not use deploy as a synonym for reconcile.
 - id: action.reconcile
   preferred_term: reconcile
   part_of_speech: verb
   domain: action
-  definition: >
-    Bring managed state toward declared state within specified authority.
+  definition: Bring managed state toward declared state within specified authority.
   allowed_aliases: []
   avoid_as_synonyms:
   - deploy
   related_terms:
   - reconciliation
-
   usage_rule: Do not use reconcile as a synonym for deploy.
 - id: action.validate
   preferred_term: validate
@@ -1220,9 +1057,7 @@ terms:
   allowed_aliases: []
   avoid_as_synonyms:
   - verify
-
-  usage_rule: Do not use validate as a synonym for verify. Validate tests an item 
-    against stated rules.
+  usage_rule: Do not use validate as a synonym for verify. Validate tests an item against stated rules.
 - id: action.verify
   preferred_term: verify
   part_of_speech: verb
@@ -1231,9 +1066,7 @@ terms:
   allowed_aliases: []
   avoid_as_synonyms:
   - validate
-
-  usage_rule: Do not use verify as a synonym for validate. Verify uses evidence to 
-    establish that a condition is true.
+  usage_rule: Do not use verify as a synonym for validate. Verify uses evidence to establish that a condition is true.
 - id: action.authorize
   preferred_term: authorize
   part_of_speech: verb
@@ -1243,7 +1076,6 @@ terms:
   avoid_as_synonyms: []
   related_terms:
   - authorization
-
 - id: action.revoke
   preferred_term: revoke
   part_of_speech: verb
@@ -1266,7 +1098,6 @@ terms:
   allowed_aliases: []
   avoid_as_synonyms: []
   usage_rule: State which change the verb names.
-
 - id: action.migrate
   preferred_term: migrate
   part_of_speech: verb
@@ -1284,7 +1115,6 @@ terms:
   related_terms:
   - recovery
   - backup
-
 - id: action.delete
   preferred_term: delete
   part_of_speech: verb
