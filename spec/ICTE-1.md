@@ -5,7 +5,7 @@ Status: Proposed independent specification
 Date: 2026-10-10  
 Scope: IT infrastructure, cloud, AI, GitOps, DevSecOps, and platform engineering
 
-Version 0.2 revises the 0.1 draft. It does not change the purpose. It splits conformance, names the reader, corrects the registry schema, and replaces the procedure example that changed the original sequence.
+Version 0.2 revises the 0.1 draft. It keeps the purpose. It splits conformance, names the reader, corrects the registry schema, and replaces the procedure example that changed the original sequence.
 
 ## 1. Overview and relationship to ASD-STE100
 
@@ -487,7 +487,7 @@ The examples illustrate writing transformations. They are not executable procedu
 |---|---|---|
 | Infrastructure | Optimize the cluster before maintenance. | The operator verifies that the remaining hypervisor hosts meet the capacity criterion before maintenance. Capacity criterion: TBD. |
 | Cloud | Secure connectivity is enabled. | The application connects through the private endpoint. The service requires authentication and encrypted transport. |
-| AI | The agent intelligently resolves infrastructure issues. | The agent reads alerts and proposes changes. An operator must approve changes before execution. |
+| AI | The agent intelligently resolves infrastructure issues. | An operator must authorize the action before the agent configures, scales, or deletes a resource. Action: TBD. Target: TBD. |
 | GitOps | Push the deployment through GitOps. | An operator creates the commit that holds the desired state. The GitOps controller reconciles the managed resources. |
 | DevSecOps | The pipeline ensures secure releases. | The pipeline blocks promotion when a required security check fails. Approved exceptions must identify an owner and expiry. |
 | Platform engineering | The platform streamlines developer onboarding. | Developers request a project through the portal. The platform creates the resources defined in the approved project template. |
