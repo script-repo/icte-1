@@ -236,7 +236,7 @@ def check_terms_match_spec(reg: dict, spec: str, report: Report) -> None:
     for term in reg["terms"]:
         preferred = term["preferred_term"]
         definition = norm(term["definition"])
-        usage = norm(term["usage_rule"]) if term.get("usage_rule") else "\u2014"
+        usage = norm(term["usage_rule"]) if term.get("usage_rule") else "—"
         target = spec_verbs if term["part_of_speech"] == "verb" else spec_nouns
         other = spec_nouns if term["part_of_speech"] == "verb" else spec_verbs
         if preferred in other:
