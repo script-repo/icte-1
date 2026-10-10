@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/script-repo/icte-1/vocabulary/registry.schema.json",
+  "title": "ICTE-1 terminology registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "specification",
+    "version",
+    "status",
+    "requirement_words",
+    "avoid_requirement_words",
+    "terms",
+    "non_equivalences",
+    "proposed_relations"
+  ],
+  "properties": {
+    "specification": { "const": "ICTE-1" },
+    "version": { "type": "string" },
+    "status": { "type": "string" },
+    "date": { "type": "string" },
+    "note": { "type": "string" },
+    "requirement_words": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["word", "meaning"],
+        "additionalProperties": false,
+        "properties": {
+          "word": { "type": "string" },
+          "meaning": { "type": "string" }
+        }
+      }
+    },
+    "avoid_requirement_words": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["word", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "word": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "avoid_verbs": { "type": "object" },
+    "domain_notes": { "type": "array" },
+    "terms": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/term" }
+    },
+    "non_equivalences": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/non_equivalence" }
+    },
+    "proposed_relations": {
+      "type": "object",
+      "required": ["statements"],
+      "properties": {
+        "note": { "type": "string" },
+        "statements": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/relation" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "term": {
+      "type": "object",
+      "required": [
+        "id",
+        "preferred_term",
+        "part_of_speech",
+        "domain",
+        "definition",
+        "allowed_aliases",
+        "avoid_as_synonyms"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(\\.[a-z0-9_]+)+$" },
+        "preferred_term": { "type": "string", "minLength": 1 },
+        "part_of_speech": { "enum": ["noun", "verb"] },
+        "domain": {
+          "enum": [
+            "infrastructure",
+            "cloud",
+            "ai",
+            "gitops",
+            "devsecops",
+            "platform",
+            "action"
+          ]
+        },
+        "definition": { "type": "string", "minLength": 1 },
+        "allowed_aliases": { "type": "array", "items": { "type": "string" } },
+        "avoid_as_synonyms": { "type": "array", "items": { "type": "string" } },
+        "related_terms": { "type": "array", "items": { "type": "string" } },
+        "usage_rule": { "type": "string" },
+        "example": { "type": "string" },
+        "owner": { "type": "string" }
+      }
+    },
+    "non_equivalence": {
+      "type": "object",
+      "required": ["id", "relation", "statement", "severity"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "left": { "type": "string" },
+        "left_text": { "type": "string" },
+        "relation": { "type": "string" },
+        "right_text": { "type": "string" },
+        "statement": { "type": "string" },
+        "severity": { "enum": ["required", "advisory"] }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "required": ["id", "left", "relation", "right"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "left": { "type": "string", "description": "Term id." },
+        "relation": { "type": "string" },
+        "right": { "type": "string", "description": "Term id." }
+      }
+    }
+  }
+}
