@@ -4,6 +4,8 @@ ICTE-1 document pattern, section 7.3.
 
 Tool availability is not permission to execute. Model output is not verified fact. A language rule never overrides an organization's approval, security, or change-management requirements.
 
+Write `TBD` for an unknown value. Write `not applicable` when a field does not apply. Do not use this pattern for a served model. Use [model-serving.md](model-serving.md) for that description.
+
 ---
 
 **Tool name:**
@@ -33,16 +35,3 @@ Tool availability is not permission to execute. Model output is not verified fac
 **Failure response:**
 
 **Audit requirements:**
-
-## Serving context, when the tool calls a model
-
-State the items that apply. Mark the others `not applicable` or `TBD`.
-
-- Model and model version.
-- Serving software and version.
-- Hardware and resource allocation.
-- Precision or quantization.
-- Input and output limits.
-- Concurrency and batching conditions.
-- Data handling and retention.
-- Evaluation criteria.

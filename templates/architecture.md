@@ -1,6 +1,6 @@
 # Architecture description
 
-ICTE-1 document pattern, section 7.2. Replace each field. Separate observed results, design intentions, assumptions, and recommendations.
+ICTE-1 document pattern, section 7.2. Replace each field. Separate observed results, design intentions, assumptions, and recommendations. Write `TBD` for an unknown value. Write `not applicable` when a field does not apply.
 
 Do not write *highly available* without naming the failures the design addresses. Do not write *unlimited scale*. State scaling limits, or state that the limits are unknown.
 
@@ -15,6 +15,10 @@ Do not write *highly available* without naming the failures the design addresses
 ## Components
 
 ## Interfaces
+
+## Network paths
+
+## Provider and customer responsibilities
 
 ## Data flows
 

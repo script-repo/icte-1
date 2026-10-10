@@ -1,10 +1,10 @@
 # Operational runbook
 
-ICTE-1 document pattern, section 7.1. Replace each field. Do not invent values. Write `TBD` where the source does not specify a value.
+ICTE-1 document pattern, section 7.1. Replace each field. Do not invent values. Write `TBD` where the source does not specify a value. Write `not applicable` when the field does not apply.
 
 A language rule never overrides an organization's approval, security, or change-management requirements.
 
-Give one action per numbered step. Put a condition before the action. Name the actor when responsibility matters.
+Give one action per numbered step. Put a condition before the action. Name the actor when responsibility matters. Put the warning immediately before a destructive action.
 
 ---
 
@@ -22,11 +22,15 @@ Give one action per numbered step. Put a condition before the action. Name the a
 
 **Prerequisites:**
 
+**Capacity criterion:**
+
 **Impact and warnings:**
 
 ## Procedure
 
 1. **Condition, if applicable:**
+
+   **Warning, immediately before a destructive action:**
 
    **Action:**
 
