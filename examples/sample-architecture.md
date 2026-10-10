@@ -66,7 +66,7 @@ Recovery point objective: TBD. Recovery time objective: TBD. State what recovery
 
 ## Constraints
 
-The serving configuration is a managed resource. An operator must not change that configuration on the inference server and leave the desired state unchanged. That split is configuration drift.
+The serving configuration is a managed resource. An operator must not configure that resource on the inference server. The desired state stays as declared. That split is configuration drift.
 
 ## Alternatives
 

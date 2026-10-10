@@ -2,7 +2,7 @@
 
 Illustration of section 7.1. This is not an executable procedure. Unknown facts are `TBD`. The precondition order matches section 8.1.
 
-Rules on the steps are annotations for the reviewer. They are not part of the procedure a technician reads aloud.
+Rules on the steps are annotations for the reviewer. They are not part of the procedure.
 
 **Title:** Upgrade one hypervisor host
 
@@ -26,9 +26,9 @@ Reviewer note: this field names the runtime target, not the cloud environment. C
 
 ## Procedure
 
-1. **Condition, if applicable:** The change window is open. Window: TBD.
+1. **Condition, if applicable:** The maintenance window is open. Window: TBD.
 
-   **Warning, immediately before a destructive action:** not applicable. This step does not change the host.
+   **Warning, immediately before a destructive action:** not applicable. This step does not configure the host.
 
    **Action:** The operator verifies that every workload has migrated off the target host.
 
@@ -40,7 +40,7 @@ Reviewer note: this field names the runtime target, not the cloud environment. C
 
 2. **Condition, if applicable:** Step 1 passed.
 
-   **Warning, immediately before a destructive action:** not applicable. This step does not change the host.
+   **Warning, immediately before a destructive action:** not applicable. This step does not configure the host.
 
    **Action:** The operator verifies that the remaining nodes meet the capacity criterion.
 
@@ -72,7 +72,7 @@ Rules: E04, verb verify.
 
 ## Stop conditions
 
-Stop when step 1 or step 2 fails. Stop when the impact is still TBD and the change window does not allow an unknown impact.
+Stop when step 1 or step 2 fails. Stop when the impact is still TBD and the maintenance window does not allow an unknown impact.
 
 ## Recovery or rollback
 
@@ -85,3 +85,22 @@ The capacity criterion, the product, the command, and the recovery method are un
 ## Evidence to retain
 
 TBD
+
+## Section 6.1 checklist
+
+- Resource types and boundaries: one hypervisor host in one named cluster. Cluster type: TBD.
+- Failure domains: TBD.
+- Capacity assumptions: stated as the capacity criterion. Criterion: TBD.
+- Network paths and dependencies: not applicable. This procedure does not configure a network path.
+- Provider and customer responsibilities: TBD.
+- Recovery objectives and verification criteria: Recovery: TBD. The operator verifies the product version. Product version: TBD.
+
+## Conformance results
+
+These results score this sample only. They do not score a document outside this repository.
+
+**Language result:** pass, with a recorded exception. The upgrade step is not an approved verb. The exception is recorded on that step. Unknown values stay `TBD`.
+
+**Operational completeness:** pass. Each section 6.1 item above is stated or marked not applicable. Each section 7.1 field is filled, `TBD`, or not applicable.
+
+**Technical review:** not passed. Owner is `TBD`. No named owner of the technical content has reviewed correctness.

@@ -1,6 +1,6 @@
 # Sample: AI tool description
 
-Illustration of section 7.3. The tool reads capacity. It does not change the cluster. Unknowns are `TBD`.
+Illustration of section 7.3. The tool returns the measured capacity of one named cluster. It does not configure, scale, or delete that cluster. Unknowns are `TBD`.
 
 **Tool name:** read_cluster_capacity
 
@@ -22,11 +22,11 @@ Illustration of section 7.3. The tool reads capacity. It does not change the clu
 
 **Timeout:** TBD
 
-**Retry behavior:** TBD. State whether a retry can run a second read.
+**Retry behavior:** TBD. State whether a retry can call the tool a second time.
 
-**Idempotency conditions:** A repeated read does not configure, delete, or scale a resource. The implementation proof is TBD.
+**Idempotency conditions:** A repeated call does not configure, delete, or scale a resource. The implementation proof is TBD.
 
-**Failure response:** The tool returns an error. It does not return a capacity of zero for a failed read.
+**Failure response:** The tool returns an error. It does not return a capacity of zero when the call fails.
 
 **Audit requirements:** TBD
 

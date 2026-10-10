@@ -42,7 +42,9 @@ Technical review passes only when a named owner of the technical content has rev
 
 ## Next test
 
-Apply section 11 to one real architecture document, one real operational runbook, and one real AI tool specification. Use the mismatches to refine the vocabulary. Do not expand the dictionary first.
+The in-repo sample [examples/sample-runbook.md](../examples/sample-runbook.md) has a section 11 score. Language passes with the recorded `upgrade` exception. Operational completeness passes because missing facts are `TBD` or not applicable. Technical review does not pass: no named owner has reviewed it.
+
+A document from outside this repository has not been scored. Score one real architecture document and one real AI tool specification the same way. Use the mismatches to refine the vocabulary. Do not expand the dictionary first.
 
 ## Limitations
 

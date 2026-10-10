@@ -51,4 +51,4 @@ A documentation change is ready when the checker passes and:
 - Unknown information remains visibly unknown.
 - A person who owns the technical content has reviewed correctness, when the change states operational facts.
 
-The next useful test of this draft is one real architecture document, one real operational runbook, and one real AI tool specification. Use the mismatches to refine the vocabulary before expanding it.
+The in-repo sample runbook has a section 11 score. A document from outside this repository has not been scored. The next useful test is one real architecture document and one real AI tool specification. Use the mismatches to refine the vocabulary before expanding it.
