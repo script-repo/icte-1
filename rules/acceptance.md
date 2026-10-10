@@ -1,34 +1,48 @@
 # Acceptance and limitations
 
-Extract of ICTE-1 sections 11 and 12. Canonical text: [spec/ICTE-1.md](../spec/ICTE-1.md).
+Extract of ICTE-1 sections 11 and 12. Canonical text: [spec/ICTE-1.md](../spec/ICTE-1.md). If this file disagrees with the specification, the specification wins.
 
-## A document passes this draft when
+A review records three results. One result does not imply another.
 
-- Terms match the approved domain meanings.
-- Actions identify their targets and relevant actors.
-- Preconditions and success criteria are explicit.
-- Destructive effects and recovery limits are stated.
-- Product-specific claims identify applicable versions.
-- Performance claims include measurement conditions.
+## Language result
+
+The language result passes when all of the following are true:
+
+- Terms match the approved meanings in the registry.
+- Actions identify their targets and the actors that matter.
+- Requirement words match section 3.2.
+- Every required rule that the document breaks has a recorded exception.
 - Unknown information remains visibly unknown.
-- A technical owner has reviewed correctness.
-- Exceptions to the writing rules are recorded.
+- The document does not assert a prohibited equivalence from section 4.3.
 
-## Version-controlled assets
+Advisory rules, including L04, are reported. An advisory miss does not fail the language result. Record the miss when the writer kept the longer sentence in order to keep the meaning.
 
-Keep these three assets under version control:
+## Operational completeness
 
-1. The writing rules, in [rules/](.).
-2. The terminology registry, in [vocabulary/registry.yaml](../vocabulary/registry.yaml).
-3. The example documents, in [examples/](../examples/).
+Operational completeness passes when both of the following are true:
 
-[spec/ICTE-1.md](../spec/ICTE-1.md) remains the canonical text. Separate maintenance is useful only while each companion stays aligned with that text. See [CONTRIBUTING.md](../CONTRIBUTING.md).
+- Each item in the section 6 checklist for that document type is stated, or marked not applicable.
+- Each field in the matching section 7 pattern is filled, or marked not applicable.
 
-Treat automated linting as a language check, not proof of technical correctness.
+## Technical review
+
+Technical review passes only when a named owner of the technical content has reviewed correctness. This profile cannot record that result by itself. A language result is not a technical review. Operational completeness is not a technical review.
+
+## Normative sources
+
+| Subject | Normative source |
+|---|---|
+| Writing rules | [spec/ICTE-1.md](../spec/ICTE-1.md) section 3 |
+| Domain checklists | [spec/ICTE-1.md](../spec/ICTE-1.md) section 6 |
+| Term records | [vocabulary/registry.yaml](../vocabulary/registry.yaml) |
+| Assistant instructions | [spec/ICTE-1.md](../spec/ICTE-1.md) section 10 |
+| Document patterns | [spec/ICTE-1.md](../spec/ICTE-1.md) section 7 |
+
+`tools/check_alignment.py` must pass before a change is complete. The checker is a language-alignment check. It is not proof of technical correctness, and it is not a language result for an arbitrary document.
 
 ## Next test
 
-Test this draft against one architecture document, one operational runbook, and one AI tool specification. Use the review results to refine the vocabulary before expanding it into a larger dictionary.
+Apply section 11 to one real architecture document, one real operational runbook, and one real AI tool specification. Use the mismatches to refine the vocabulary. Do not expand the dictionary first.
 
 ## Limitations
 
@@ -36,5 +50,7 @@ Test this draft against one architecture document, one operational runbook, and 
 - The vocabulary is a starter set, not a complete replacement for the ASD-STE100 dictionary.
 - The domain definitions are local usage conventions, not universal definitions across every vendor or standard.
 - The profile does not certify technical correctness, safety, security, compliance, or operational readiness.
+- A language result does not establish operational completeness or technical review.
 - Examples are illustrative and require technical validation before operational use.
 - A prompt alone cannot establish compliance with either ICTE-1 or ASD-STE100.
+- Automated alignment checks are not proof that a document is correct.

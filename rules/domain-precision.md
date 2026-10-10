@@ -1,10 +1,12 @@
 # Domain precision rules
 
-Extract of ICTE-1 section 6. Canonical text: [spec/ICTE-1.md](../spec/ICTE-1.md).
+Extract of ICTE-1 section 6. Canonical text: [spec/ICTE-1.md](../spec/ICTE-1.md). If this file disagrees with the specification, the specification wins.
+
+For every checklist in this section, state each item, or mark the item not applicable. Do not omit an item because it might be irrelevant.
 
 ## Infrastructure and cloud
 
-Every design or procedure must state the relevant items below.
+Every design or procedure must state each item below, or mark the item not applicable.
 
 - Resource types and boundaries.
 - Failure domains.
@@ -13,26 +15,28 @@ Every design or procedure must state the relevant items below.
 - Provider and customer responsibilities.
 - Recovery objectives and verification criteria.
 
-Replace *highly available* with a description of the failures the design addresses.
+Replace highly available with a description of the failures the design addresses.
 
-Replace *unlimited scale* with stated scaling limits, or state that the limits are unknown.
+Replace unlimited scale with stated scaling limits, or state that the limits are unknown.
 
-Do not use *private*, *isolated*, *disconnected*, and *air-gapped* interchangeably. Describe network reachability, administration, and data movement separately.
+Put the warning immediately before a destructive action. Rule L13 applies.
+
+Do not use private, isolated, disconnected, and air-gapped interchangeably. Describe network reachability, administration, and data movement separately.
 
 ## AI
 
-Every model-serving description must identify the relevant items below.
+Every model-serving description must state each item below, or mark the item not applicable.
 
 - Model and model version.
 - Serving software and version.
 - Hardware and resource allocation.
-- Precision or quantization.
+- Quantization, and whether it applies to weights, activations, or the KV cache.
 - Input and output limits.
 - Concurrency and batching conditions.
 - Data handling and retention.
 - Evaluation criteria.
 
-Every agent procedure must identify:
+Every agent procedure must state each item below, or mark the item not applicable.
 
 - Available tools.
 - Permitted targets.
@@ -42,7 +46,7 @@ Every agent procedure must identify:
 - Audit records.
 - Failure and escalation behavior.
 
-Prohibited equivalences:
+The following equivalences are prohibited. Each one has severity required.
 
 - Model output is not verified fact.
 - Retrieval is not model training.
@@ -53,9 +57,9 @@ Prohibited equivalences:
 
 ## GitOps
 
-Reserve *GitOps* for workflows with declared state and automated reconciliation. Storing scripts in Git does not satisfy that convention.
+For this profile, reserve GitOps for a workflow that declares the desired state and reconciles that state continuously. Storing scripts in Git does not satisfy the convention.
 
-Every GitOps procedure must name:
+Every GitOps procedure must state each item below, or mark the item not applicable.
 
 - The desired-state source.
 - The managed resources.
@@ -70,20 +74,20 @@ Do not imply that reverting a commit restores application data or reverses exter
 
 ## DevSecOps
 
-Every control description must name:
+Every control description must state each item below, or mark the item not applicable.
 
 - The protected resource.
 - The threat or prohibited condition.
 - The control mechanism.
 - The enforcement point.
 - The evidence of operation.
-- The exception owner and expiry, when applicable.
+- The exception owner and expiry, when an exception exists. Mark this item not applicable when no exception exists.
 
 Do not use a successful scan as proof that a system is secure. State the checks performed, their coverage, and their limitations.
 
 ## Platform engineering
 
-Every platform service must state:
+Every platform service must state each item below, or mark the item not applicable.
 
 - Intended consumers.
 - Service owner.

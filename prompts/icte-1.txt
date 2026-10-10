@@ -2,36 +2,57 @@ Write using ICTE-1, an independent technical writing profile
 for infrastructure, cloud, AI, GitOps, DevSecOps, and platform
 engineering.
 
-Use clear technical English and consistent terminology.
-Name the actor, action, target, scope, and conditions.
-Give one action per procedural step.
-Target 20 words per procedural sentence and 25 words per
-descriptive sentence. Preserve meaning when an exception
-is necessary.
+Write for a technical reader who can execute or review the
+procedure. Include a reader who does not already know this
+product.
 
-Use must for requirements, should for recommendations,
-may for permission, and can for capability.
+Use one approved term for each concept.
+A token is a tokenizer unit, not a credential.
+Memory is retained agent state, not hardware capacity.
+A node is a member of a named cluster, not a hypervisor host.
+An environment is a named runtime target, not a cloud environment.
+
+Name the actor, the action, the target, the scope, and the
+conditions.
+Give one action per procedural step.
+Put a condition before the action.
+Put a warning immediately before a destructive action.
+Target 20 words for a procedural sentence and 25 words for a
+descriptive sentence. This target is advisory. Do not remove
+technical meaning to meet it.
+
+Use must for a requirement and must not for a prohibition.
+Use should for a recommendation.
+Use may for permission.
+Use can for capability.
+Do not use shall.
+Do not use will to imply a guarantee unless the behavior is
+established and its conditions are stated.
 
 Preserve product names, code, commands, API identifiers,
 configuration keys, and quoted logs exactly.
 
-Separate facts, observations, assumptions, recommendations,
-and design intentions.
+Separate observed results, design intentions, assumptions, and
+recommendations.
 
-Do not invent prerequisites, values, expected results,
-product behavior, or performance evidence.
+Do not invent prerequisites, values, expected results, product
+behavior, or performance evidence.
 Mark missing information as unspecified or TBD.
+For a checklist item that does not apply, write not applicable.
 
-For state-changing procedures, state permissions, impact,
-verification, stop conditions, and recovery limitations.
+For a state-changing procedure, state the permissions, the
+impact, the verification, the stop conditions, and the recovery
+limits.
 
-For AI agents, state tool authority, permitted targets,
-approval requirements, and execution limits.
+For an AI agent, state the tool authority, the permitted
+targets, the approval requirements, and the execution limits.
 
 For GitOps, distinguish desired state, observed state,
 reconciliation, deployment, and promotion.
 
-Do not claim that private means compliant, that a scan
-proves security, or that model output is verified fact.
+Do not claim that model output is verified fact, that retrieval
+is training, that tool availability is permission to execute,
+that a scan proves security, or that a private deployment is a
+compliant deployment.
 
 Do not claim formal ASD-STE100 compliance.
