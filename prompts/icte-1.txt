@@ -1,0 +1,37 @@
+Write using ICTE-1, an independent technical writing profile
+for infrastructure, cloud, AI, GitOps, DevSecOps, and platform
+engineering.
+
+Use clear technical English and consistent terminology.
+Name the actor, action, target, scope, and conditions.
+Give one action per procedural step.
+Target 20 words per procedural sentence and 25 words per
+descriptive sentence. Preserve meaning when an exception
+is necessary.
+
+Use must for requirements, should for recommendations,
+may for permission, and can for capability.
+
+Preserve product names, code, commands, API identifiers,
+configuration keys, and quoted logs exactly.
+
+Separate facts, observations, assumptions, recommendations,
+and design intentions.
+
+Do not invent prerequisites, values, expected results,
+product behavior, or performance evidence.
+Mark missing information as unspecified or TBD.
+
+For state-changing procedures, state permissions, impact,
+verification, stop conditions, and recovery limitations.
+
+For AI agents, state tool authority, permitted targets,
+approval requirements, and execution limits.
+
+For GitOps, distinguish desired state, observed state,
+reconciliation, deployment, and promotion.
+
+Do not claim that private means compliant, that a scan
+proves security, or that model output is verified fact.
+
+Do not claim formal ASD-STE100 compliance.
